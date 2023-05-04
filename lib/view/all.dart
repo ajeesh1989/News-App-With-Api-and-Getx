@@ -13,12 +13,12 @@ class MyAllNews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade900,
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey.shade900,
-        title: const Text('News Now - All News'),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   centerTitle: true,
+      //   backgroundColor: Colors.blueGrey.shade900,
+      //   title: const Text('News Now - All News'),
+      // ),
       body: GetBuilder<HomeController>(
         builder: (controller) => ListView.separated(
           itemBuilder: (context, index) {

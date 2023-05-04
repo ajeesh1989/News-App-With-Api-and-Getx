@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/view/all.dart';
 import 'package:news_app/view/business.dart';
@@ -47,13 +45,16 @@ class _MyHomeState extends State<MyHome> {
           ),
         ),
         drawer: const Drawer(),
-        body: TabBarView(
-          children: [
-            MyAllNews(),
-            MySports(),
-            MyBusiness(),
-            MyScience(),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: TabBarView(
+            children: [
+              MyAllNews(),
+              MySports(),
+              MyBusiness(),
+              MyScience(),
+            ],
+          ),
         ),
       ),
     );

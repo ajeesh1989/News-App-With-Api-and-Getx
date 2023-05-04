@@ -13,13 +13,13 @@ class MySports extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade900,
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey.shade900,
-        title: const Text('News Now - Sports News'),
-      ),
-      drawer: Drawer(),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   centerTitle: true,
+      //   backgroundColor: Colors.blueGrey.shade900,
+      //   title: const Text('News Now - Sports News'),
+      // ),
+      // drawer: Drawer(),
       body: GetBuilder<HomeController>(
         builder: (controller) => ListView.separated(
           itemBuilder: (context, index) {
