@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:news_app/model/data_model.dart';
 import 'package:news_app/model/model.dart';
@@ -12,10 +13,11 @@ class HomeController extends GetxController {
   }
   Service service = Service();
 
-  late NewsModel allNewsDatas;
-  late NewsModel sportsNewsDatas;
-  late NewsModel businessNewsDatas;
-  late NewsModel scienceNewsDatas;
+  NewsModel? anyNews;
+  NewsModel? allNewsDatas;
+  NewsModel? sportsNewsDatas;
+  NewsModel? businessNewsDatas;
+  NewsModel? scienceNewsDatas;
   bool isLoading = false;
   void getAllNews() async {
     isLoading = true;
@@ -36,7 +38,7 @@ class HomeController extends GetxController {
   }
 
   NewsDataModel findById(String id) {
-    return allNewsDatas.data.firstWhere((element) => element.id == id);
+    return allNewsDatas!.data.firstWhere((element) => element.id == id);
   }
 
   void getSportsNews() async {
@@ -89,6 +91,48 @@ class HomeController extends GetxController {
         }
       },
     );
+    isLoading = false;
+    update();
+  }
+
+  TextEditingController searchEditingController = TextEditingController();
+  List<NewsDataModel> searchList = [];
+
+  void search(String searchController) {
+    List<NewsDataModel> resultList = [];
+    if (searchController.isEmpty) {
+      resultList = allNewsDatas!.data;
+      update();
+    } else {
+      resultList = allNewsDatas!.data
+          .where(
+            (element) => element.title.toLowerCase().contains(
+                  searchController.toLowerCase(),
+                ),
+          )
+          .toList();
+      update();
+    }
+    searchList = resultList;
+    update();
+  }
+
+  void getAnyNews(String tabText) async {
+    isLoading = true;
+    update();
+    if (tabText == 'all') {
+      anyNews = allNewsDatas;
+      update();
+    } else if (tabText == 'business') {
+      anyNews = businessNewsDatas;
+      update();
+    } else if (tabText == 'science') {
+      anyNews = scienceNewsDatas;
+      update();
+    } else {
+      anyNews = sportsNewsDatas;
+      update();
+    }
     isLoading = false;
     update();
   }

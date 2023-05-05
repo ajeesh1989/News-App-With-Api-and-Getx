@@ -26,7 +26,6 @@ class NewsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                textAlign: TextAlign.justify,
                 findnews.title.toString(),
                 style: const TextStyle(fontSize: 25),
               ),

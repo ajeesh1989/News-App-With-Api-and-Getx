@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 import 'package:news_app/api_baseUrl/base_url.dart';
 import 'package:news_app/api_endUrl/end_url.dart';
 import 'package:news_app/model/model.dart';
@@ -21,8 +20,8 @@ class Service {
       }
     } on DioError catch (error) {
       log(error.message.toString(), name: 'get all news error');
-      Get.snackbar('Something went wrong', error.toString(),
-          snackPosition: SnackPosition.BOTTOM);
+      // Get.snackbar('Something went wrong', error.toString(),
+      //     snackPosition: SnackPosition.BOTTOM);
     }
     return null;
   }
@@ -38,8 +37,8 @@ class Service {
       }
     } on DioError catch (error) {
       log(error.message.toString(), name: 'get sports news error');
-      Get.snackbar('Something went wrong', error.toString(),
-          snackPosition: SnackPosition.BOTTOM);
+      // Get.snackbar('Something went wrong', error.toString(),
+      //     snackPosition: SnackPosition.BOTTOM);
     }
     return null;
   }
@@ -55,8 +54,8 @@ class Service {
       }
     } on DioError catch (error) {
       log(error.message.toString(), name: 'get business news error');
-      Get.snackbar('Something went wrong', error.toString(),
-          snackPosition: SnackPosition.BOTTOM);
+      // Get.snackbar('Something went wrong', error.toString(),
+      //     snackPosition: SnackPosition.BOTTOM);
     }
     return null;
   }
@@ -72,8 +71,8 @@ class Service {
       }
     } on DioError catch (error) {
       log(error.message.toString(), name: 'get science news error');
-      Get.snackbar('Something went wrong', error.toString(),
-          snackPosition: SnackPosition.BOTTOM);
+      // Get.snackbar('Something went wrong', error.toString(),
+      //     snackPosition: SnackPosition.BOTTOM);
     }
     return null;
   }
